@@ -128,17 +128,20 @@ return function(Config)
 	})
 
 	Window.Root = New("Frame", {
-		BackgroundTransparency = 1,
-		Size = Window.Size,
-		Position = Window.Position,
-		Parent = Config.Parent,
-	}, {
-		Window.AcrylicPaint.Frame,
-		Window.TabDisplay,
-		Window.ContainerCanvas,
-		TabFrame,
-		ResizeStartFrame,
-	})
+    BackgroundTransparency = 1,
+    Size = Window.Size,
+    Position = Window.Position,
+    Parent = Config.Parent,
+}, {
+    New("UICorner", {
+        CornerRadius = UDim.new(0, 16), -- Adjust this value for the curve you want
+    }),
+    Window.AcrylicPaint.Frame,
+    Window.TabDisplay,
+    Window.ContainerCanvas,
+    TabFrame,
+    ResizeStartFrame,
+})
 
 	Window.HideButton = New("ImageButton", {
 		Visible = Library.Utilities:GetOS() == "Mobile",
